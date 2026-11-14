@@ -50,3 +50,14 @@ Para estimar el consumo real se debe medir en el anfitrión: el Administrador de
 porcentaje de CPU del proceso; y, si se requieren ciclos físicos exactos, un perfilador como `perf stat -e cycles -p <PID>` en Linux o Intel VTune / Windows 
 Performance Analyzer en Windows.
 
+# PARTE 2 — VirtualBox: creación y gestión de máquinas virtuales
+## Checkpoint 5 — Reasignación de recursos de la VM
+
+Se modificó la configuración de la máquina virtual Lab5-Alpine mediante VBoxManage modifyvm, aumentando los procesadores virtuales de 1 a 2 y la memoria RAM de 
+1024 MB a 2048 MB.
+
+Después de reiniciar Alpine Linux, se ejecutó nproc, obteniendo como resultado 2 procesadores. Posteriormente, mediante free -m, se verificó que el sistema 
+reconocía 1976 MiB de memoria RAM, de los cuales 60 MiB estaban en uso en el momento de la medición.
+
+Los resultados confirman que VirtualBox aplicó correctamente la reasignación de recursos sin necesidad de reinstalar el sistema operativo.
+
